@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -38,9 +39,40 @@ class _HomeState extends State<Home> {
      
     
       //Botao
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        
+      floatingActionButton: SpeedDial(
+        animatedIcon: AnimatedIcons.menu_close,
+          animatedIconTheme: IconThemeData(size: 22),
+          backgroundColor: Colors.orange,
+          visible: true,
+          curve: Curves.bounceIn,
+          children: [
+                // FAB 1
+                SpeedDialChild(
+                child: Icon(Icons.assignment_turned_in),
+                backgroundColor: Colors.blue,
+                onTap: () { /* do anything */ },
+                label: 'Salvaterra',
+                labelStyle: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 16.0),
+                labelBackgroundColor: Colors.blue),
+                // FAB 2
+                SpeedDialChild(
+                child: Icon(Icons.assignment_turned_in),
+                backgroundColor: Colors.blue,
+                onTap: () {
+                   setState(() {
+                      
+                   });
+                },
+                label: 'Soure',
+                labelStyle: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 16.0),
+                labelBackgroundColor: Colors.blue)
+          ],
       ),
 
       //Barra
@@ -52,7 +84,7 @@ class _HomeState extends State<Home> {
 
 
       //Botao no meio de navigation
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
