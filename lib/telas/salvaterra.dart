@@ -19,8 +19,8 @@ class salvaterraHome extends StatelessWidget {
             padding: EdgeInsets.all(10.0),
             child: Row(children: <Widget>[
               Container(
-                width: 80.0,
-                height: 80.0,
+                width: 50.0,
+                height: 50.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
@@ -32,13 +32,9 @@ class salvaterraHome extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.all(10.0),
-                child: Column(children: <Widget>[
+                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
                   Text("Pousada Umuarama",style: TextStyle(color: Colors.black,fontSize: 22.0),),
-                  Center(
-                    child:
-                     Text("Clique para mais informações",
-                     style: TextStyle(color: Colors.black,fontSize: 14.0),),
-                     )
+                  
                 ],),
                 )
               ],
@@ -47,32 +43,29 @@ class salvaterraHome extends StatelessWidget {
         ),
         //FIM LOJA TESTE
 
-        //Loja teste 2
+        //LOJA TESTE 2
         Card(
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Row(children: <Widget>[
               Container(
-                width: 80.0,
-                height: 80.0,
+                width: 50.0,
+                height: 50.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     image: AssetImage("Imagens/sabormarajo.jpg"))
                 ),
                 child: InkWell(
+                  splashColor: Colors.blue,
                   onTap: (){},
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(10.0),
-                child: Column(children: <Widget>[
+                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
                   Text("Sabor marajó",style: TextStyle(color: Colors.black,fontSize: 22.0),),
-                  Center(
-                    child:
-                     Text("Clique para mais informações",
-                     style: TextStyle(color: Colors.black,fontSize: 14.0),),
-                     )
+                  
                 ],),
                 )
               ],
