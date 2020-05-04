@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
 
+class salvaterraHome extends StatefulWidget {
+  @override
+  _salvaterraState createState() => _salvaterraState();
+}
+    String servico = "Serviço";
+    int selectPage = 0;
 
-class salvaterraHome extends StatelessWidget {
-
-  String servico = "Serviços:";
-
+class _salvaterraState extends State<salvaterraHome> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text("Salvaterra", style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.orange,
-      ),
+    //++++++++++++++++++AQUI VOU ADICIONAR AS PAGINAS+++++++++++++++++\\
+    final _pages = [
 
-      body: ListView(children: <Widget>[
-        //LOJA UMUARAMA
+      //////////LISTA COM RESTAURANTES DE COMIDA/////////////
+      ListView(children: <Widget>[
+
+          //LOJA UMUARAMA
         Card(
           child: Padding(
             padding: EdgeInsets.all(10.0),
@@ -152,8 +153,44 @@ class salvaterraHome extends StatelessWidget {
 
 
 
-      ],)
+
+      ],),
+      //++++++++++++++++++++++FIM LOJAS DE COMIDA+++++++++++++++++++\\
       
+      /////////////LISTA COM OUTROS ESTABELECIMENTOS///////////////////
+      ListView(children: <Widget>[
+        
+      ],)
+      //+++++++++++++++++FIM OUTROS ESTABELECIMENTOS+++++++++++++++++++//
+    ]; 
+
+
+
+    //***************PARTE PRINCIPAL DO APP*******************\\
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text("Salvaterra", style: TextStyle(color: Colors.white),),
+        backgroundColor: Colors.orange,
+      ),
+
+      body: _pages[selectPage],
+      
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectPage,
+        onTap: (int index){
+            setState(() {
+              selectPage = index;
+            });
+        },
+        items: [
+        BottomNavigationBarItem(icon: Icon(Icons.backup),
+        title: Text("Comida")
+        ),
+        BottomNavigationBarItem(icon: Icon(Icons.ac_unit),
+        title: Text("Outros")
+        )],
+      ),
 
     );
   }
