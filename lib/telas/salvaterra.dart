@@ -147,12 +147,58 @@ class _salvaterraState extends State<salvaterraHome> {
         ),
         //FIM MURRAS
 
-        //Loja tchaba
+        //Loja BOCA QUENTE
+          Card(
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Row(children: <Widget>[
+              Container(
+                width: 50.0,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage("Imagens/bocaQuente.jpeg"))
+                ),
+                child: InkWell(
+                  splashColor: Colors.blue,
+                  onTap: (){
+                    showDialog<String>(context: context,
+                    builder: (BuildContext context)=> AlertDialog(
+                      title: Text(servico),
+                      content: ListView(children: <Widget>[
+                        Text("*Preço sujeito a alteração",style: TextStyle(color:Colors.orange),),
+                        Image.asset("Imagens/cardapio/bocaQuenteCardapio.jpeg",fit: BoxFit.cover,
+                        height: 350.0,),
+                        
+                        Text("Média---------15 reais"),
+                        Text("Grande--------25 reais"),
+                        Text("Família---------30 reais"),
 
-        //Fim loja tchaba
-
-
-
+                        Text("Contato:",style: TextStyle(fontSize: 20.0),),
+                        Text("(91) 984980664"),
+                        Text("(91) 992869960")
+                      ],),
+                      actions: <Widget>[
+                        FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                        child: Text("OK"))
+                      ],
+                    )
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
+                  Text("Pizza: Boca quente",style: TextStyle(color: Colors.black,fontSize: 19.0),),
+                ],),
+                )
+              ],
+            ),
+            ),
+        ),
+        //Fim BOCA QUENTE
 
       ],),
       //++++++++++++++++++++++FIM LOJAS DE COMIDA+++++++++++++++++++\\
@@ -169,6 +215,7 @@ class _salvaterraState extends State<salvaterraHome> {
     //***************PARTE PRINCIPAL DO APP*******************\\
     return Scaffold(
       backgroundColor: Colors.white,
+
       appBar: AppBar(
         title: Text("Salvaterra", style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.orange,
@@ -184,10 +231,10 @@ class _salvaterraState extends State<salvaterraHome> {
             });
         },
         items: [
-        BottomNavigationBarItem(icon: Icon(Icons.backup),
+        BottomNavigationBarItem(icon: Icon(Icons.fastfood),
         title: Text("Comida")
         ),
-        BottomNavigationBarItem(icon: Icon(Icons.ac_unit),
+        BottomNavigationBarItem(icon: Icon(Icons.toc),
         title: Text("Outros")
         )],
       ),
