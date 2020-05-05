@@ -81,7 +81,7 @@ class _salvaterraState extends State<salvaterraHome> {
                       title: Text(servico),
                       content: ListView(children: <Widget>[
                         Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
-                        Image.asset("Imagens/cardapio/SaborCardPizza.jpeg",fit: BoxFit.cover,height: 390.0,),
+                        Image.asset("Imagens/cardapio/SaborCardPizza.jpeg",fit: BoxFit.cover,height: 350.0,),
                         Image.asset("Imagens/cardapio/SaborCardLanche.jpeg",fit: BoxFit.cover,height: 350.0,),
                         Image.asset("Imagens/cardapio/SaborCardCosta.jpeg",fit: BoxFit.cover,height: 350.0,),
 
@@ -233,16 +233,21 @@ class _salvaterraState extends State<salvaterraHome> {
                         Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
                         Image.asset("Imagens/cardapio/BebidasDinoCard.jpeg",fit: BoxFit.cover,
                         height: 250.0,),
+                        Padding(padding: EdgeInsets.all(10.0)),
                         Image.asset("Imagens/LogoDinos.jpeg",fit: BoxFit.cover,
-                        height: 250.0,),
+                        height: 350.0,),
+                        Padding(padding: EdgeInsets.all(10.0)),
                         Image.asset("Imagens/cardapio/HambDinoCard2.jpeg",fit: BoxFit.cover,
-                        height: 250.0,),
+                        height: 400.0,),
+                        Padding(padding: EdgeInsets.all(10.0)),
                         Image.asset("Imagens/cardapio/HambDinoCard3.jpeg",fit: BoxFit.cover,
-                        height: 250.0,),
+                        height: 400.0,),
+                        Padding(padding: EdgeInsets.all(10.0)),
                         Image.asset("Imagens/cardapio/HambDinoCard1.jpeg",fit: BoxFit.cover,
-                        height: 250.0,),
+                        height: 200.0,),
                         
                         Text("Contato:",style: TextStyle(fontSize: 20.0),),
+                        SelectableText("(91) 991781838")
                         
                       ],),
                       actions: <Widget>[
@@ -267,8 +272,59 @@ class _salvaterraState extends State<salvaterraHome> {
         //Fim Dinos Burguers
 
         //Loja Kley Lanches
-
+          Card(
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Row(children: <Widget>[
+              Container(
+                width: 50.0,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage("Imagens/LogoKley.jpeg"))
+                ),
+                child: InkWell(
+                  splashColor: Colors.blue,
+                  onTap: (){
+                    showDialog<String>(context: context,
+                    builder: (BuildContext context)=> AlertDialog(
+                      title: Text(servico),
+                      content: ListView(children: <Widget>[
+                        Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                        Image.asset("Imagens/cardapio/cardKley.jpeg",fit: BoxFit.cover,
+                        height: 250.0,),
+                        Padding(padding: EdgeInsets.all(10.0)),
+                        Image.asset("Imagens/cardapio/cardKley2.jpeg",fit: BoxFit.cover,
+                        height: 350.0,),
+                        Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                        SelectableText("(91) 983766742")
+                      ],),
+                      actions: <Widget>[
+                        FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                        child: Text("OK"))
+                      ],
+                    )
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
+                  Text("Kley lanches",style: TextStyle(color: Colors.black,fontSize: 19.0),),
+                ],),
+                )
+              ],
+            ),
+            ),
+        ),
         //FIM Loja  kley lanches
+
+        //Loja JAPA LANCHES
+
+        //FIM loja JAPA LANCHES
+        
 
       ],),
       //++++++++++++++++++++++FIM LOJAS DE COMIDA+++++++++++++++++++\\
