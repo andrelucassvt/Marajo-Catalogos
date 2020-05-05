@@ -272,7 +272,7 @@ class _salvaterraState extends State<salvaterraHome> {
         //Fim Dinos Burguers
 
         //Loja Kley Lanches
-          Card(
+        Card(
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Row(children: <Widget>[
@@ -322,9 +322,62 @@ class _salvaterraState extends State<salvaterraHome> {
         //FIM Loja  kley lanches
 
         //Loja JAPA LANCHES
+        Card(
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Row(children: <Widget>[
+              Container(
+                width: 50.0,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage("Imagens/LogoJapa.jpeg"))
+                ),
+                child: InkWell(
+                  splashColor: Colors.blue,
+                  onTap: (){
+                    showDialog<String>(context: context,
+                    builder: (BuildContext context)=> AlertDialog(
+                      title: Text(servico),
+                      content: ListView(children: <Widget>[
+                        Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                        Image.asset("Imagens/cardapio/cardJapa1.jpeg",fit: BoxFit.cover,
+                        height: 250.0,),
+                        Padding(padding: EdgeInsets.all(10.0)),
+                        Image.asset("Imagens/cardapio/carJapa2.jpeg",fit: BoxFit.cover,
+                        height: 350.0,),
+                        Image.asset("Imagens/cardapio/cardJapa3.jpeg",fit: BoxFit.cover,
+                        height: 250.0,),
+                        Padding(padding: EdgeInsets.all(10.0)),
+                        Image.asset("Imagens/cardapio/carJapa4.jpeg",fit: BoxFit.cover,
+                        height: 350.0,),
+                        Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                        SelectableText("(91) 982512392"),
+                        SelectableText("(91) 993358406")
 
+                      ],),
+                      actions: <Widget>[
+                        FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                        child: Text("OK"))
+                      ],
+                    )
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
+                  Text("Kley lanches",style: TextStyle(color: Colors.black,fontSize: 19.0),),
+                ],),
+                )
+              ],
+            ),
+            ),
+        ),
         //FIM loja JAPA LANCHES
-        
+
 
       ],),
       //++++++++++++++++++++++FIM LOJAS DE COMIDA+++++++++++++++++++\\
