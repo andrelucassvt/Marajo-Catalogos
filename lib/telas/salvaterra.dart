@@ -5,7 +5,7 @@ class salvaterraHome extends StatefulWidget {
   @override
   _salvaterraState createState() => _salvaterraState();
 }
-    String servico = "Serviço";
+    String servico = "Serviços:";
     int selectPage = 0;
 
 class _salvaterraState extends State<salvaterraHome> {
@@ -79,8 +79,14 @@ class _salvaterraState extends State<salvaterraHome> {
                     showDialog<String>(context: context,
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
-                      content: Column(children: <Widget>[
-                        Text("Oi")
+                      content: ListView(children: <Widget>[
+                        Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                        Image.asset("Imagens/cardapio/SaborCardPizza.jpeg",fit: BoxFit.cover,height: 390.0,),
+                        Image.asset("Imagens/cardapio/SaborCardLanche.jpeg",fit: BoxFit.cover,height: 350.0,),
+                        Image.asset("Imagens/cardapio/SaborCardCosta.jpeg",fit: BoxFit.cover,height: 350.0,),
+
+                        Text("Contato:",style: TextStyle(fontSize: 20.0),),
+                        SelectableText("(91) 989734333")
                       ],),
                       actions: <Widget>[
                         FlatButton(onPressed: ()=> Navigator.pop(context, "OK")
@@ -123,9 +129,12 @@ class _salvaterraState extends State<salvaterraHome> {
                     showDialog<String>(context: context,
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
-                      content: Column(children: <Widget>[
-                        Text("Oi")
-                        ],),
+                      content: ListView(children: <Widget>[
+                        Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                        Image.asset("Imagens/cardapio/cardapioMurra.jpeg",fit: BoxFit.cover,height: 350.0,),
+                        Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                        SelectableText("(91) 992480905")
+                      ],),
                       actions: <Widget>[
                         FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
                         child: Text("OK"))
@@ -167,7 +176,7 @@ class _salvaterraState extends State<salvaterraHome> {
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
                       content: ListView(children: <Widget>[
-                        Text("*Preço sujeito a alteração",style: TextStyle(color:Colors.orange),),
+                        Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
                         Image.asset("Imagens/cardapio/bocaQuenteCardapio.jpeg",fit: BoxFit.cover,
                         height: 350.0,),
                         
@@ -176,8 +185,8 @@ class _salvaterraState extends State<salvaterraHome> {
                         Text("Família---------30 reais"),
 
                         Text("Contato:",style: TextStyle(fontSize: 20.0),),
-                        Text("(91) 984980664"),
-                        Text("(91) 992869960")
+                        SelectableText("(91) 984980664"),
+                        SelectableText("(91) 992869960")
                       ],),
                       actions: <Widget>[
                         FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
@@ -199,6 +208,67 @@ class _salvaterraState extends State<salvaterraHome> {
             ),
         ),
         //Fim BOCA QUENTE
+
+        //Loja Dinos Burguers
+         Card(
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Row(children: <Widget>[
+              Container(
+                width: 50.0,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage("Imagens/cardapio/ChapasDinoCard.jpeg"))
+                ),
+                child: InkWell(
+                  splashColor: Colors.blue,
+                  onTap: (){
+                    showDialog<String>(context: context,
+                    builder: (BuildContext context)=> AlertDialog(
+                      title: Text(servico),
+                      content: ListView(children: <Widget>[
+
+                        Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                        Image.asset("Imagens/cardapio/BebidasDinoCard.jpeg",fit: BoxFit.cover,
+                        height: 250.0,),
+                        Image.asset("Imagens/LogoDinos.jpeg",fit: BoxFit.cover,
+                        height: 250.0,),
+                        Image.asset("Imagens/cardapio/HambDinoCard2.jpeg",fit: BoxFit.cover,
+                        height: 250.0,),
+                        Image.asset("Imagens/cardapio/HambDinoCard3.jpeg",fit: BoxFit.cover,
+                        height: 250.0,),
+                        Image.asset("Imagens/cardapio/HambDinoCard1.jpeg",fit: BoxFit.cover,
+                        height: 250.0,),
+                        
+                        Text("Contato:",style: TextStyle(fontSize: 20.0),),
+                        
+                      ],),
+                      actions: <Widget>[
+                        FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                        child: Text("OK"))
+                      ],
+                    )
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
+                  Text("Dino´s Burgers",style: TextStyle(color: Colors.black,fontSize: 19.0),),
+                ],),
+                )
+              ],
+            ),
+            ),
+        ),
+        //Fim Dinos Burguers
+
+        //Loja Kley Lanches
+
+        //FIM Loja  kley lanches
 
       ],),
       //++++++++++++++++++++++FIM LOJAS DE COMIDA+++++++++++++++++++\\

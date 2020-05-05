@@ -44,6 +44,17 @@ flutter:
   - Imagens/murras.PNG
   - Imagens/bocaQuente.jpeg
   - Imagens/cardapio/bocaQuenteCardapio.jpeg
+  - Imagens/cardapio/cardapioMurra.jpeg
+  - Imagens/cardapio/SaborCardCosta.jpeg
+  - Imagens/cardapio/SaborCardLanche.jpeg
+  - Imagens/cardapio/SaborCardPizza.jpeg
+  - Imagens/LogoDinos.jpeg
+  - Imagens/cardapio/BebidasDinoCard.jpeg
+  - Imagens/cardapio/HambDinoCard1.jpeg
+  - Imagens/cardapio/HambDinoCard2.jpeg
+  - Imagens/cardapio/HambDinoCard3.jpeg
+  - Imagens/cardapio/BebidasDinoCard.jpeg
+  - Imagens/cardapio/ChapasDinoCard.jpeg
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
