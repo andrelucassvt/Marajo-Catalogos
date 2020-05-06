@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
 
 
 class salvaterraHome extends StatefulWidget {
@@ -17,22 +18,17 @@ class _salvaterraState extends State<salvaterraHome> {
       //////////LISTA COM RESTAURANTES DE COMIDA/////////////
       ListView(children: <Widget>[
 
-          //LOJA UMUARAMA
+        // LOJA UMUARAMA
         Card(
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Row(children: <Widget>[
-              Container(
-                width: 50.0,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage("Imagens/umuarama.jpg"))
-                ),
+          color: Colors.white,
+          margin: EdgeInsets.all(10.0),
+          elevation: 5.0,
+            child: Container(
+              height: 60.0,
+              width: 60.0,
                 child: InkWell(
-                  onTap: (){
-                    showDialog<String>(context: context,
+                  splashColor:  Colors.deepOrange,
+                  onTap: (){showDialog<String>(context: context,
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
                       content: Column(children: <Widget>[
@@ -45,134 +41,136 @@ class _salvaterraState extends State<salvaterraHome> {
                     )
                     );
                   },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
-                  Text("Pousada Umuarama",style: TextStyle(color: Colors.black,fontSize: 19.0),),
-                  
-                ],),
-                )
-              ],
-            ),
-            ),
-        ),
-        //FIM UMUARAMA
-
-        //LOJA SABOR MARAJO
-        Card(
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Row(children: <Widget>[
-              Container(
-                width: 50.0,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage("Imagens/sabormarajo.jpg"))
-                ),
-                child: InkWell(
-                  splashColor: Colors.blue,
-                  onTap: (){
-                    showDialog<String>(context: context,
-                    builder: (BuildContext context)=> AlertDialog(
-                      title: Text(servico),
-                      content: ListView(children: <Widget>[
-                        Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
-                        Image.asset("Imagens/cardapio/SaborCardPizza.jpeg",fit: BoxFit.cover,height: 350.0,),
-                        Image.asset("Imagens/cardapio/SaborCardLanche.jpeg",fit: BoxFit.cover,height: 350.0,),
-                        Image.asset("Imagens/cardapio/SaborCardCosta.jpeg",fit: BoxFit.cover,height: 350.0,),
-
-                        Text("Contato:",style: TextStyle(fontSize: 20.0),),
-                        SelectableText("(91) 989734333")
+                  child: Row(children: <Widget>[
+                      Container(
+                      width: 50.0,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage("Imagens/umuarama.jpg"))
+                      )),
+                        Expanded(child: Text(" Pousada Umuarama",style: TextStyle(fontSize: 19.0)))
                       ],),
-                      actions: <Widget>[
-                        FlatButton(onPressed: ()=> Navigator.pop(context, "OK")
-                        , child: Text("OK"))
-                      ],
-                    )
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
-                  Text("Sabor marajó",style: TextStyle(color: Colors.black,fontSize: 19.0),),
-                  
-                ],),
-                )
-              ],
-            ),
-            ),
-        ),
-        //FIM SABOR MARAJO
+                    ),
+                  ),
+          ),
+         //FIM LOJA UMUARAMA
 
-        //Loja MURRAS
+         //LOJA SABOR MARAJO
         Card(
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Row(children: <Widget>[
-              Container(
-                width: 50.0,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage("Imagens/murras.PNG"))
-                ),
+          color: Colors.white,
+          margin: EdgeInsets.all(10.0),
+          elevation: 5.0,
+            child: Container(
+              height: 60.0,
+              width: 60.0,
                 child: InkWell(
-                  splashColor: Colors.blue,
+                  splashColor:  Colors.deepOrange,
                   onTap: (){
-                    showDialog<String>(context: context,
-                    builder: (BuildContext context)=> AlertDialog(
+                     showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
                       content: ListView(children: <Widget>[
-                        Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
-                        Image.asset("Imagens/cardapio/cardapioMurra.jpeg",fit: BoxFit.cover,height: 350.0,),
-                        Text("Contato:", style: TextStyle(fontSize: 20.0),),
-                        SelectableText("(91) 992480905")
+                        
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Text("* 2 CLICKS PARA LIBERAR O ZOOM",style: TextStyle(color:Colors.blue),),
+                          
+                          Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/SaborCardPizza.jpeg")),
+                          ),
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Container(
+                            height: 450,
+                            child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/SaborCardLanche.jpeg")),
+                          ),
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/SaborCardCosta.jpeg")),
+                          ),
+                              
+                          Text("Contato:",style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 989734333")
                       ],),
                       actions: <Widget>[
                         FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
                         child: Text("OK"))
                       ],
-                    )
-                    );
+                      ));
                   },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
-                  Text("Murrah's",style: TextStyle(color: Colors.black,fontSize: 19.0),),
-                ],),
-                )
-              ],
-            ),
-            ),
-        ),
-        //FIM MURRAS
+                  child: Row(children: <Widget>[
+                      Container(
+                      width: 50.0,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage("Imagens/sabormarajo.jpg"))
+                      )),
+                        Expanded(child: Text(" Sabor marajó",style: TextStyle(fontSize: 19.0),))
+                      ],),
+                    ),
+                  ),
+          ),
+         //FIM LOJA SABOR MARAJO
 
-        //Loja BOCA QUENTE
+         //LOJA MURRAS
           Card(
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Row(children: <Widget>[
-              Container(
-                width: 50.0,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage("Imagens/bocaQuente.jpeg"))
-                ),
-                child: InkWell(
-                  splashColor: Colors.blue,
-                  onTap: (){
-                    showDialog<String>(context: context,
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Image.asset("Imagens/cardapio/cardapioMurra.jpeg",fit: BoxFit.cover,height: 350.0,),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 992480905")
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/murras.PNG"))
+                        )),
+                          Expanded(child: Text(" Murrah's",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+         //FIM LOJA MURRAS
+
+         //LOJA BOCA QUENTE
+          Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
                       content: ListView(children: <Widget>[
@@ -194,38 +192,35 @@ class _salvaterraState extends State<salvaterraHome> {
                       ],
                     )
                     );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
-                  Text("Pizza: Boca quente",style: TextStyle(color: Colors.black,fontSize: 19.0),),
-                ],),
-                )
-              ],
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/bocaQuente.jpeg"))
+                        )),
+                          Expanded(child: Text(" Pizza: Boca quente",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
             ),
-            ),
-        ),
-        //Fim BOCA QUENTE
-
-        //Loja Dinos Burguers
-         Card(
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Row(children: <Widget>[
-              Container(
-                width: 50.0,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage("Imagens/cardapio/ChapasDinoCard.jpeg"))
-                ),
-                child: InkWell(
-                  splashColor: Colors.blue,
-                  onTap: (){
-                    showDialog<String>(context: context,
+         //FIM LOJA BOCA QUENTE
+         
+         //LOJA DINOS BURGUER
+           Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                     showDialog<String>(context: context,
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
                       content: ListView(children: <Widget>[
@@ -256,44 +251,41 @@ class _salvaterraState extends State<salvaterraHome> {
                       ],
                     )
                     );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
-                  Text("Dino´s Burgers",style: TextStyle(color: Colors.black,fontSize: 19.0),),
-                ],),
-                )
-              ],
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/cardapio/ChapasDinoCard.jpeg"))
+                        )),
+                          Expanded(child: Text(" Dino´s Burgers",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
             ),
-            ),
-        ),
-        //Fim Dinos Burguers
+         //FIM LOJA DINOS BURGUER
 
-        //Loja Kley Lanches
-        Card(
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Row(children: <Widget>[
-              Container(
-                width: 50.0,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage("Imagens/LogoKley.jpeg"))
-                ),
-                child: InkWell(
-                  splashColor: Colors.blue,
-                  onTap: (){
-                    showDialog<String>(context: context,
+         //LOJA KLEY LANCHES
+           Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
                       content: ListView(children: <Widget>[
                         Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
                         Image.asset("Imagens/cardapio/cardKley.jpeg",fit: BoxFit.cover,
-                        height: 250.0,),
+                        height: 350.0,),
                         Padding(padding: EdgeInsets.all(10.0)),
                         Image.asset("Imagens/cardapio/cardKley2.jpeg",fit: BoxFit.cover,
                         height: 350.0,),
@@ -306,52 +298,62 @@ class _salvaterraState extends State<salvaterraHome> {
                       ],
                     )
                     );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
-                  Text("Kley lanches",style: TextStyle(color: Colors.black,fontSize: 19.0),),
-                ],),
-                )
-              ],
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/LogoKley.jpeg"))
+                        )),
+                          Expanded(child: Text(" Kley Lanches",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
             ),
-            ),
-        ),
-        //FIM Loja  kley lanches
+         //FIM LOJA KLEY LANCHES
 
-        //Loja JAPA LANCHES
-        Card(
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Row(children: <Widget>[
-              Container(
-                width: 50.0,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage("Imagens/LogoJapa.jpeg"))
-                ),
-                child: InkWell(
-                  splashColor: Colors.blue,
-                  onTap: (){
-                    showDialog<String>(context: context,
+         //LOJA JAPA LANCHES
+            Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                       showDialog<String>(context: context,
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
                       content: ListView(children: <Widget>[
                         Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
-                        Image.asset("Imagens/cardapio/cardJapa1.jpeg",fit: BoxFit.cover,
-                        height: 250.0,),
+                        Text("* 2 CLICKS PARA LIBERAR O ZOOM",style: TextStyle(color:Colors.blue),),
+
+                        Container(
+                          height: 400,
+                          child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/cardJapa1.jpeg")),
+                        ),
+
                         Padding(padding: EdgeInsets.all(10.0)),
-                        Image.asset("Imagens/cardapio/carJapa2.jpeg",fit: BoxFit.cover,
-                        height: 350.0,),
-                        Image.asset("Imagens/cardapio/cardJapa3.jpeg",fit: BoxFit.cover,
-                        height: 250.0,),
+                        Container(
+                          height: 400,
+                          child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/cardJapa2.jpeg")),
+                        ),
+
                         Padding(padding: EdgeInsets.all(10.0)),
-                        Image.asset("Imagens/cardapio/carJapa4.jpeg",fit: BoxFit.cover,
-                        height: 350.0,),
+                        Container(
+                          height: 400,
+                          child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/cardJapa3.jpeg")),
+                        ),
+                        Padding(padding: EdgeInsets.all(10.0)),
+                        Container(
+                          height: 400,
+                          child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/cardJapa4.jpeg")),
+                        ),
                         Text("Contato:", style: TextStyle(fontSize: 20.0),),
                         SelectableText("(91) 982512392"),
                         SelectableText("(91) 993358406")
@@ -360,24 +362,24 @@ class _salvaterraState extends State<salvaterraHome> {
                       actions: <Widget>[
                         FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
                         child: Text("OK"))
-                      ],
-                    )
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
-                  Text("Kley lanches",style: TextStyle(color: Colors.black,fontSize: 19.0),),
-                ],),
-                )
-              ],
+                        ],
+                      ));
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/logoJapa.jpeg"))
+                        )),
+                          Expanded(child: Text(" Japa lanches",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
             ),
-            ),
-        ),
-        //FIM loja JAPA LANCHES
-
+         //FIM LOJA JAPA LANCHES
 
       ],),
       //++++++++++++++++++++++FIM LOJAS DE COMIDA+++++++++++++++++++\\
