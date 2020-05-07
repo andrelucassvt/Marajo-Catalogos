@@ -13,96 +13,94 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text("Catálogo marajoara",style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.orange,
-      ),*/
         
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            pinned: true,
-            snap: false,
-            floating: false,
-            expandedHeight: 160.0,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text("Catálogo marajoara",style: TextStyle(color: Colors.white),),
-              background: Image.asset("Imagens/TesouroMarajoara.jpg",fit: BoxFit.fill,),
-              centerTitle: true,
-            ),
+      body:Stack(children: <Widget>[
+        
+        Image.asset("Imagens/TesouroMarajoara2.JPG",fit: BoxFit.cover,height: 1000,),
+        
+        Column(mainAxisAlignment: MainAxisAlignment.center,children: <Widget>[
+
+          Align(alignment: Alignment.bottomLeft,
+          child: Text("   Olá, bem-vindo(a) ao ",style: TextStyle(color: Colors.white,fontSize: 15.0),),
           ),
-        SliverFillRemaining(
-          child: 
-            Text("Bem vindo ao catálogo marajoara",style: TextStyle(fontSize: 20.0),)
-          
-          
-        )
-        ],
-      ),
-      
-      
-      
-      
-      
-      
-      
-       /*Stack(children: <Widget>[
+          Padding(padding: EdgeInsets.all(5.0)),
+          Align(alignment: Alignment.bottomLeft,
+          child:  Text("  Catálogo",style: TextStyle(color: Colors.white,fontSize: 25.0),)
+          ),
 
-      new Image.asset('Imagens/Marajoara.jpg',fit: BoxFit.fill,height: 1000.0,),
-
-      //Texto inicial
-      Padding(padding: EdgeInsets.all(10.0),
-      child:Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-
-          Text("Bem vindo ao catálago marajoara.",
-          style: TextStyle(color: Colors.white70,fontSize: 25.0,backgroundColor:Colors.black45,))
+          Align(alignment: Alignment.bottomLeft,
+          child:  Text("  Marajoara.",style: TextStyle(color: Colors.white,fontSize: 25.0),),
+          ),
          
-        ],), 
-      ),
-      
+          Padding(padding: EdgeInsets.all(0.0)),
+          
+          Align(
+            alignment: Alignment.bottomLeft,
+            child:ButtonBar(
+            alignment: MainAxisAlignment.start,
+            children: <Widget>[
+              FlatButton(onPressed: (){}, child: Text("Saiba mais   ",style: TextStyle(color: Colors.yellow),))
+            ],
+          ),
+          ),
 
+        ],),
+
+        Column(mainAxisAlignment: MainAxisAlignment.end,children: <Widget>[
+           Align(alignment: Alignment.bottomLeft,
+          child: Text("   Escolha o catálogo: ",style: TextStyle(color: Colors.white,fontSize: 15.0),),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Card(
+              color: Colors.orange,
+              margin: EdgeInsets.all(10.0),
+              child: Container(
+                height: 50,
+                child: InkWell(
+                  splashColor: Colors.blue,
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> salvaterraHome()));
+                  },
+                  child: Row(children: <Widget>[
+                    Expanded(child: Center(
+                      child:  
+                      Text("Salvaterra",style: TextStyle(color: Colors.white),)),)
+                  ],)
+                ),
+              ),
+            )
+          ),
+
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Card(     
+              color: Colors.blue,
+              margin: EdgeInsets.all(10.0),
+              child: Container(
+                height: 50,
+                child: InkWell(
+                  splashColor: Colors.blue,
+                  onTap: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> soureHome()));
+                  },
+                  child: Row(children: <Widget>[
+                    Expanded(child: Center(
+                      child:  
+                      Text("Soure",style: TextStyle(color: Colors.white),)),)
+                  ],)
+                ),
+              ),
+            )
+          ),
+
+
+        ],)
+        
+        
       ],),
-      */
-      //Botao
-      floatingActionButton: SpeedDial(
-          animatedIcon: AnimatedIcons.menu_close,
-          animatedIconTheme: IconThemeData(size: 22),
-          backgroundColor: Colors.orange,
-          visible: true,
-          curve: Curves.bounceIn,
-          children: [
-                // FAB 1
-                SpeedDialChild(
-                child: Icon(Icons.assignment_turned_in),
-                backgroundColor: Colors.blue,
-                onTap: () { 
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> salvaterraHome()));
-                },
-                label: 'Salvaterra',
-                labelStyle: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 16.0),
-                labelBackgroundColor: Colors.blue),
-                // FAB 2
-                SpeedDialChild(
-                child: Icon(Icons.assignment_turned_in),
-                backgroundColor: Colors.blue,
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> soureHome()));
-                },
-                label: 'Soure',
-                labelStyle: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 16.0),
-                labelBackgroundColor: Colors.blue),
-
-          ],
-        ),//FIM BOTAO
+      
+     
       
     );
    

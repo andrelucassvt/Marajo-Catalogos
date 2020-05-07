@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:background_app_bar/background_app_bar.dart';
 
 
 class salvaterraHome extends StatefulWidget {
@@ -31,8 +32,20 @@ class _salvaterraState extends State<salvaterraHome> {
                   onTap: (){showDialog<String>(context: context,
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
-                      content: Column(children: <Widget>[
-                        Text("Oi")
+                      content: ListView(children: <Widget>[
+                        Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                        Text("* 2 CLICKS PARA LIBERAR O ZOOM",style: TextStyle(color:Colors.blue),),
+                        Container(
+                          height: 350.0,
+                          child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/CardUmuarama.jpeg")),
+                        ),
+                        Text("*Aceitamos cartões",style: TextStyle(color:Colors.red),),
+                        Text("*Entrega somente no centro de Salvaterra",style: TextStyle(color:Colors.red),),
+
+                        Text("Contato:",style: TextStyle(fontSize: 20.0),),
+                        SelectableText("(91) 983001330")
+
+
                       ],),
                       actions: <Widget>[
                         FlatButton(onPressed: ()=> Navigator.pop(context, "OK")
@@ -381,17 +394,295 @@ class _salvaterraState extends State<salvaterraHome> {
             ),
          //FIM LOJA JAPA LANCHES
 
+         //LOJA DE COXINNHA
+           Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Image.asset("Imagens/CoxinhaLogo.jpeg",fit: BoxFit.cover,height: 350.0,),
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Image.asset("Imagens/cardapio/coxinhaCard.jpeg",fit: BoxFit.cover,height: 350.0,),
+                          Text("1 prato -------- 5 reais"),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 993220310"),
+                          SelectableText("(91) 984188747"),
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/CoxinhaLogo.jpeg"))
+                        )),
+                          Expanded(child: Text(" Delícia de coxinha",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+         //FIM LOJA DE COXINHA
+
+        //Loja 3 irmao
+         Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Image.asset("Imagens/cardapio/card3ir.jpeg",fit: BoxFit.cover,height: 350.0,),
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 983724926"),
+                          SelectableText("(91) 991118618"),
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/logo3ir.jpeg"))
+                        )),
+                          Expanded(child: Text(" 3 irmãos",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+        //FIM 3 IRMAO
+
+        //DEUS
+        Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          
+                          Text("* 2 CLICKS PARA LIBERAR O ZOOM",style: TextStyle(color:Colors.blue),),
+                          Container(
+                            height: 250,
+                            child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/cardDeus.jpeg")),
+                          ),
+                          
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 985621966"),
+                          SelectableText("(91) 9811598300"),
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/deus.jpeg"))
+                        )),
+                          Expanded(child: Text(" Glória Deus",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+        //FIM DEUS
+
+        //LOJA QUIOSQUE MURITAAAAAA
+
+        //FIM LOGO MURITAAAAAA
+
       ],),
       //++++++++++++++++++++++FIM LOJAS DE COMIDA+++++++++++++++++++\\
       
       /////////////LISTA COM OUTROS ESTABELECIMENTOS///////////////////
       ListView(children: <Widget>[
-        
+
+        //SIMEAO
+          Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Image.asset("Imagens/simeao.jpeg",fit: BoxFit.cover,height: 350.0,),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 993492750"),
+                          SelectableText("(91) 991840846"),
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/simeao.jpeg"))
+                        )),
+                          Expanded(child: Text(" Simeão",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+        //FIM SEMAO
+
+        //Peixe
+        Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Image.asset("Imagens/cardapio/cardPeixe.jpeg",fit: BoxFit.cover,height: 350.0,),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 985204530"),
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/logoPeix.jpeg"))
+                        )),
+                          Expanded(child: Text(" Forte do pescado",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+        //Fim Peixe
+
+          //Loja IMPERIAL
+           Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Localizado na vila de jubim",style: TextStyle(color:Colors.orange),),
+                          Text("- Material escolar,Recargas,GiftCards",style: TextStyle(fontSize: 15.0)),
+                          Text("- Saque e deposito",style: TextStyle(fontSize: 15.0)),
+                          Text("- Serviço de delivery aos sabados e domingos",style: TextStyle(fontSize: 15.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 993856168"),
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/imperialLogo.jpeg"))
+                        )),
+                          Expanded(child: Text(" Imperial mix",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+        //FIM LOJA IMPERIAL
+
+
       ],)
       //+++++++++++++++++FIM OUTROS ESTABELECIMENTOS+++++++++++++++++++//
     ]; 
 
-
+     
 
     //***************PARTE PRINCIPAL DO APP*******************\\
     return Scaffold(
@@ -406,22 +697,22 @@ class _salvaterraState extends State<salvaterraHome> {
         slivers: <Widget>[
           SliverAppBar(
             pinned: true,
-            snap: false,
             floating: false,
-            expandedHeight: 160.0,
+            snap: false,
+            expandedHeight: 155.0,
             flexibleSpace: FlexibleSpaceBar(
               title: Text("Salvaterra",style: TextStyle(color: Colors.white),),
               background: Image.asset("Imagens/SalvaterraAppbar.jpg",fit: BoxFit.fill,),
               centerTitle: true,
             ),
-          ),
+          ),  
+         
         SliverFillRemaining(
           
-          child:  Container(
-            child: _pages[selectPage], 
-          ),
-            
-        )
+          child:  _pages[selectPage],
+           
+             
+          )
         ],
       ),
       
