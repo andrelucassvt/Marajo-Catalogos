@@ -50,7 +50,7 @@ class _salvaterraState extends State<salvaterraHome> {
                         image: DecorationImage(
                           image: AssetImage("Imagens/umuarama.jpg"))
                       )),
-                        Expanded(child: Text(" Pousada Umuarama",style: TextStyle(fontSize: 19.0)))
+                        Expanded(child: Text(" Umuarama",style: TextStyle(fontSize: 19.0)))
                       ],),
                     ),
                   ),
@@ -279,7 +279,7 @@ class _salvaterraState extends State<salvaterraHome> {
                   child: InkWell(
                     splashColor:  Colors.deepOrange,
                     onTap: (){
-                      showDialog<String>(context: context,
+                    showDialog<String>(context: context,
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
                       content: ListView(children: <Widget>[
@@ -326,7 +326,7 @@ class _salvaterraState extends State<salvaterraHome> {
                   child: InkWell(
                     splashColor:  Colors.deepOrange,
                     onTap: (){
-                       showDialog<String>(context: context,
+                    showDialog<String>(context: context,
                     builder: (BuildContext context)=> AlertDialog(
                       title: Text(servico),
                       content: ListView(children: <Widget>[
@@ -396,13 +396,35 @@ class _salvaterraState extends State<salvaterraHome> {
     //***************PARTE PRINCIPAL DO APP*******************\\
     return Scaffold(
       backgroundColor: Colors.white,
-
+      /*
       appBar: AppBar(
         title: Text("Salvaterra", style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.orange,
       ),
-
-      body: _pages[selectPage],
+      */
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            pinned: true,
+            snap: false,
+            floating: false,
+            expandedHeight: 160.0,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text("Salvaterra",style: TextStyle(color: Colors.white),),
+              background: Image.asset("Imagens/SalvaterraAppbar.jpg",fit: BoxFit.fill,),
+              centerTitle: true,
+            ),
+          ),
+        SliverFillRemaining(
+          
+          child:  Container(
+            child: _pages[selectPage], 
+          ),
+            
+        )
+        ],
+      ),
+      
       
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectPage,

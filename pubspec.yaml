@@ -65,7 +65,8 @@ flutter:
   - Imagens/cardapio/cardJapa3.jpeg
   - Imagens/cardapio/cardJapa4.jpeg
   - Imagens/logoJapa.jpeg
-
+  - Imagens/SalvaterraAppbar.jpg
+  - Imagens/TesouroMarajoara.jpg
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

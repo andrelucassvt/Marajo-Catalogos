@@ -13,14 +13,41 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      /*backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Catálogo marajoara",style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.orange,
+      ),*/
+        
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            pinned: true,
+            snap: false,
+            floating: false,
+            expandedHeight: 160.0,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text("Catálogo marajoara",style: TextStyle(color: Colors.white),),
+              background: Image.asset("Imagens/TesouroMarajoara.jpg",fit: BoxFit.fill,),
+              centerTitle: true,
+            ),
+          ),
+        SliverFillRemaining(
+          child: 
+            Text("Bem vindo ao catálogo marajoara",style: TextStyle(fontSize: 20.0),)
+          
+          
+        )
+        ],
       ),
       
       
-      body: Stack(children: <Widget>[
+      
+      
+      
+      
+      
+       /*Stack(children: <Widget>[
 
       new Image.asset('Imagens/Marajoara.jpg',fit: BoxFit.fill,height: 1000.0,),
 
@@ -38,7 +65,7 @@ class _homePageState extends State<homePage> {
       
 
       ],),
-
+      */
       //Botao
       floatingActionButton: SpeedDial(
           animatedIcon: AnimatedIcons.menu_close,
