@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:marajocatalogo/telas/saibaMais.dart';
 import 'package:marajocatalogo/telas/salvaterra.dart';
 import 'package:marajocatalogo/telas/soure.dart';
 
@@ -16,7 +16,7 @@ class _homePageState extends State<homePage> {
         
       body:Stack(children: <Widget>[
         
-        Image.asset("Imagens/TesouroMarajoara2.JPG",fit: BoxFit.cover,height: 1000,),
+        Image.asset("Imagens/TesouroMarajoara4.JPG",fit: BoxFit.cover,height: 1000,),
         
         Column(mainAxisAlignment: MainAxisAlignment.center,children: <Widget>[
 
@@ -25,7 +25,8 @@ class _homePageState extends State<homePage> {
           ),
           Padding(padding: EdgeInsets.all(5.0)),
           Align(alignment: Alignment.bottomLeft,
-          child:  Text("  Catálogo",style: TextStyle(color: Colors.white,fontSize: 25.0),)
+          child:  Text("  Catálogo",
+          style: TextStyle(color: Colors.white,fontSize: 25.0),)
           ),
 
           Align(alignment: Alignment.bottomLeft,
@@ -39,7 +40,11 @@ class _homePageState extends State<homePage> {
             child:ButtonBar(
             alignment: MainAxisAlignment.start,
             children: <Widget>[
-              FlatButton(onPressed: (){}, child: Text("Saiba mais   ",style: TextStyle(color: Colors.yellow),))
+              FlatButton(onPressed: (){
+
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> saibaMais()));
+
+              }, child: Text("Saiba mais   ",style: TextStyle(color: Colors.yellow),))
             ],
           ),
           ),
@@ -80,7 +85,7 @@ class _homePageState extends State<homePage> {
               child: Container(
                 height: 50,
                 child: InkWell(
-                  splashColor: Colors.blue,
+                  splashColor: Colors.orange,
                   onTap: (){
                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> soureHome()));
                   },

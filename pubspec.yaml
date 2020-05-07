@@ -79,6 +79,14 @@ flutter:
   - Imagens/deus.jpeg
   - Imagens/cardapio/cardDeus.jpeg
   - Imagens/TesouroMarajoara2.JPG
+  - Imagens/TesouroMarajoara3.JPG
+  - Imagens/TesouroMarajoara4.JPG
+  - Imagens/logoMurita.jpeg
+  - Imagens/cardapio/cardMurita.jpeg
+  - Imagens/cardapio/cardMurita2.jpeg
+  - ImagensSoure/logotiaCon.jpeg
+  - ImagensSoure/cardapio/cardTiaCon.jpeg
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

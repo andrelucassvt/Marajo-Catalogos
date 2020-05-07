@@ -410,7 +410,7 @@ class _salvaterraState extends State<salvaterraHome> {
                         title: Text(servico),
                         content: ListView(children: <Widget>[
                           Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
-                          Image.asset("Imagens/CoxinhaLogo.jpeg",fit: BoxFit.cover,height: 350.0,),
+                          Image.asset("Imagens/CoxinhaLogo.jpeg",fit: BoxFit.cover,height: 250.0,),
                           Padding(padding: EdgeInsets.all(10.0)),
                           Image.asset("Imagens/cardapio/coxinhaCard.jpeg",fit: BoxFit.cover,height: 350.0,),
                           Text("1 prato -------- 5 reais"),
@@ -538,7 +538,57 @@ class _salvaterraState extends State<salvaterraHome> {
         //FIM DEUS
 
         //LOJA QUIOSQUE MURITAAAAAA
-
+         Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Text("* 2 CLICKS PARA LIBERAR O ZOOM",style: TextStyle(color:Colors.blue),),
+                          Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/cardMurita.jpeg")),
+                          ),
+                           Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("Imagens/cardapio/cardMurita2.jpeg")),
+                          ),
+                          
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 984403028"),
+                          
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/logoMurita.jpeg"))
+                        )),
+                          Expanded(child: Text(" Quiosque Muiraquitã",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
         //FIM LOGO MURITAAAAAA
 
       ],),
