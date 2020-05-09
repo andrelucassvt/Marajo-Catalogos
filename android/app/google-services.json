@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "361140133473",
+    "firebase_url": "https://catalogo-marajoara.firebaseio.com",
+    "project_id": "catalogo-marajoara",
+    "storage_bucket": "catalogo-marajoara.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361140133473:android:977d52fed28abc26ced420",
+        "android_client_info": {
+          "package_name": "com.andre.marajocatalogo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361140133473-u8qjfvv5op9btnd9rmdtrgphsd953iag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0dTSdHvTexbhlnUpmq-e0NsOobGnyCdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "361140133473-u8qjfvv5op9btnd9rmdtrgphsd953iag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

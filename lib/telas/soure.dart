@@ -66,56 +66,6 @@ class _soureHomeState extends State<soureHome> {
             ),
             //Tia conce
 
-            //FAmilia seila
-             Card(
-            color: Colors.white,
-            margin: EdgeInsets.all(10.0),
-            elevation: 5.0,
-              child: Container(
-                height: 60.0,
-                width: 60.0,
-                  child: InkWell(
-                    splashColor:  Colors.deepOrange,
-                    onTap: (){
-                      showDialog<String>(context: context,
-                      builder: (BuildContext context)=> AlertDialog(
-                        title: Text(servico),
-                        content: ListView(children: <Widget>[
-                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
-                          Text("* 2 CLICKS PARA LIBERAR O ZOOM",style: TextStyle(color:Colors.blue),),
-                          Container(
-                            height: 350,
-                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/cardapio/cardFamilia.jpeg")),
-                          ),
-                          
-                          Padding(padding: EdgeInsets.all(10.0)),
-                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
-                          SelectableText("(91) 984716623"),
-                          
-                        ],),
-                        actions: <Widget>[
-                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
-                          child: Text("OK"))
-                        ],
-                      )
-                      );
-                    },
-                    child: Row(children: <Widget>[
-                        Container(
-                        width: 50.0,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: AssetImage("ImagensSoure/Logofamilia.jpeg"))
-                        )),
-                          Expanded(child: Text(" Famiglia gentile",style: TextStyle(fontSize: 19.0)))
-                        ],),
-                      ),
-                    ),
-            ),
-            //Fim familia seila
-
             //Na brasa siqueira
               Card(
             color: Colors.white,
@@ -191,9 +141,8 @@ class _soureHomeState extends State<soureHome> {
                           Text("* 2 CLICKS PARA LIBERAR O ZOOM",style: TextStyle(color:Colors.blue),),
                           Container(
                             height: 350,
-                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/cardapio/cardPatu.jpeg")),
+                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/cardapio/cardPatuAnoNova.jpeg")),
                           ),
-                     
                           
                           Padding(padding: EdgeInsets.all(10.0)),
                           Text("Contato:", style: TextStyle(fontSize: 20.0),),
@@ -275,9 +224,217 @@ class _soureHomeState extends State<soureHome> {
                         ],),
                       ),
                     ),
-            )
+            ),
             //FIm ACAI
 
+             //FAmilia seila
+             Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Text("* 2 CLICKS PARA LIBERAR O ZOOM",style: TextStyle(color:Colors.blue),),
+                          Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/cardapio/cardFamilia.jpeg")),
+                          ),
+                          
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 984716623"),
+                          
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("ImagensSoure/Logofamilia.jpeg"))
+                        )),
+                          Expanded(child: Text(" Famiglia gentile",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+            //Fim familia seila
+
+            //Leite
+             Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/cardapio/cardleite1.jpeg")),
+                          ),
+                           Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/cardapio/cardleite2.jpeg")),
+                          ),
+                          
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 984865281"),
+                          
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("ImagensSoure/logoLeite.jpeg"))
+                        )),
+                          Expanded(child: Text(" Laticinio Baio Peua",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+            //Fim leite
+
+            //Hamburgueria no
+              Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/cardapio/cardHam.jpeg")),
+                          ),
+                          
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 985008820"),
+                          SelectableText("(91) 998143817"),
+                          
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("ImagensSoure/logoHam.jpeg"))
+                        )),
+                          Expanded(child: Text(" HAMBURGUERIA EL  SHADDAI",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+            //FIM HAMBURGUER NOR
+
+            //Roda viva
+              Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/cardapio/cardrodaviva.jpeg")),
+                          ),
+                           Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/cardapio/cardrodaviva2.jpeg")),
+                          ),
+                          
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 987057777"),
+                          SelectableText("(91) 984686346"),
+                          SelectableText("(91) 989901920"),
+                          SelectableText("(91) 987661025"),
+                          
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("ImagensSoure/logorodaviva.jpeg"))
+                        )),
+                          Expanded(child: Text(" Roda viva",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+            //Fim roda viva
 
       ],),
 
@@ -339,7 +496,10 @@ class _soureHomeState extends State<soureHome> {
     ];
 
 
-    return Scaffold(
+    return Padding(padding: EdgeInsets.only(bottom: 50),
+    
+    
+     child:Scaffold(
   
 
       body: CustomScrollView(
@@ -381,7 +541,7 @@ class _soureHomeState extends State<soureHome> {
         title: Text("Outros")
         )],
       ),
-
+     )
     );
   }
 }

@@ -22,6 +22,7 @@ dependencies:
   flutter_speed_dial: ^1.2.5
   photo_view: ^0.9.2
   background_app_bar: ^1.0.2
+  firebase_admob: ^0.5.5
  
 
   # The following adds the Cupertino Icons font to your application.
@@ -32,6 +33,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.7.3"
+flutter_icons:
+    android: "launcher_icon"
+    ios: true
+    image_path: "Imagens/Icone.jpg"
 
 
 # For information on the generic Dart part of this file, see the
@@ -98,7 +104,29 @@ flutter:
   - ImagensSoure/cardapio/cardFamilia.jpeg
   - ImagensSoure/cardapio/cardPatu.jpeg
   - ImagensSoure/cardapio/cardSou3.jpeg
-
+  - ImagensSoure/cardapio/cardPatuAnoNova.jpeg
+  - ImagensSoure/logoThaba.jpeg
+  - ImagensSoure/cardapio/cardThaba.jpeg
+  - ImagensSoure/cardapio/cardHam.jpeg
+  - ImagensSoure/cardapio/cardleite1.jpeg
+  - ImagensSoure/cardapio/cardleite2.jpeg
+  - ImagensSoure/cardapio/cardrodaviva.jpeg
+  - ImagensSoure/cardapio/cardrodaviva2.jpeg
+  - ImagensSoure/logoChop.jpeg
+  - ImagensSoure/logoHam.jpeg
+  - ImagensSoure/logoLeite.jpeg
+  - ImagensSoure/logorodaviva.jpeg
+  - Imagens/Yanka.jpeg
+  - Imagens/Andre.jpg
+  - Imagens/extra.jpg
+  - Imagens/eu2.jpeg
+  - Imagens/eu3.PNG
+  - Imagens/dario.jpg
+  - Imagens/bufalo.jpg
+  - Imagens/churrasLogo.jpeg
+  - Imagens/fruteira.jpeg
+  - Imagens/loading.jpg
+  - Imagens/Icone.jpg
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

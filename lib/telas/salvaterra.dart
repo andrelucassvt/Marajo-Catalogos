@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:background_app_bar/background_app_bar.dart';
 
 
 class salvaterraHome extends StatefulWidget {
@@ -18,6 +17,56 @@ class _salvaterraState extends State<salvaterraHome> {
 
       //////////LISTA COM RESTAURANTES DE COMIDA/////////////
       ListView(children: <Widget>[
+        
+           //Thaba
+        Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/cardapio/cardThaba.jpeg")),
+                          ),
+                          
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 985206466"),
+                          SelectableText("(91) 984656927"),
+                          
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("ImagensSoure/logoThaba.jpeg"))
+                        )),
+                          Expanded(child: Text(" Tchaba",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+        //FIM THABA
 
         // LOJA UMUARAMA
         Card(
@@ -328,6 +377,55 @@ class _salvaterraState extends State<salvaterraHome> {
             ),
          //FIM LOJA KLEY LANCHES
 
+        //Churras barbosa
+          Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                    showDialog<String>(context: context,
+                    builder: (BuildContext context)=> AlertDialog(
+                      title: Text(servico),
+                      content: ListView(children: <Widget>[
+                        Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                        Text("* 2 CLICKS PARA LIBERAR O ZOOM",style: TextStyle(color:Colors.blue),),
+
+                        Container(
+                          height: 400,
+                          child: PhotoView(imageProvider: AssetImage("Imagens/churrasLogo.jpeg")),
+                        ),
+                        Padding(padding: EdgeInsets.all(10.0)),
+                        Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                        SelectableText("(91) 991329948"),
+                        SelectableText("(91) 985676332"),
+                      ],),
+                      actions: <Widget>[
+                        FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                        child: Text("OK"))
+                      ],
+                    )
+                    );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/churrasLogo.jpeg"))
+                        )),
+                          Expanded(child: Text(" Churrascaria Barbosa",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+        //fim barbosa
          //LOJA JAPA LANCHES
             Card(
             color: Colors.white,
@@ -590,6 +688,54 @@ class _salvaterraState extends State<salvaterraHome> {
                     ),
             ),
         //FIM LOGO MURITAAAAAA
+         //Choop
+              Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Container(
+                            height: 350,
+                            child: PhotoView(imageProvider: AssetImage("ImagensSoure/logoChop.jpeg")),
+                          ),
+                          
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 992680496"),
+                          
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("ImagensSoure/logoChop.jpeg"))
+                        )),
+                          Expanded(child: Text(" Chopp goumert & Mini coxinha",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+            //Fim Chopp
 
       ],),
       //++++++++++++++++++++++FIM LOJAS DE COMIDA+++++++++++++++++++\\
@@ -682,6 +828,50 @@ class _salvaterraState extends State<salvaterraHome> {
             ),
         //Fim Peixe
 
+        //Fruteira
+         Card(
+            color: Colors.white,
+            margin: EdgeInsets.all(10.0),
+            elevation: 5.0,
+              child: Container(
+                height: 60.0,
+                width: 60.0,
+                  child: InkWell(
+                    splashColor:  Colors.deepOrange,
+                    onTap: (){
+                      showDialog<String>(context: context,
+                      builder: (BuildContext context)=> AlertDialog(
+                        title: Text(servico),
+                        content: ListView(children: <Widget>[
+                          Text("*Preços sujeitos a alteração",style: TextStyle(color:Colors.orange),),
+                          Image.asset("Imagens/fruteira.jpeg",fit: BoxFit.cover,height: 250.0,),
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Text("Contato:", style: TextStyle(fontSize: 20.0),),
+                          SelectableText("(91) 983151895"),
+                        ],),
+                        actions: <Widget>[
+                          FlatButton(onPressed: ()=> Navigator.pop(context, "OK"), 
+                          child: Text("OK"))
+                        ],
+                      )
+                      );
+                    },
+                    child: Row(children: <Widget>[
+                        Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("Imagens/fruteira.jpeg"))
+                        )),
+                          Expanded(child: Text(" Marabá Hortifruti",style: TextStyle(fontSize: 19.0)))
+                        ],),
+                      ),
+                    ),
+            ),
+        //Fim fruteira
+
           //Loja IMPERIAL
            Card(
             color: Colors.white,
@@ -735,14 +925,10 @@ class _salvaterraState extends State<salvaterraHome> {
      
 
     //***************PARTE PRINCIPAL DO APP*******************\\
-    return Scaffold(
-      backgroundColor: Colors.white,
-      /*
-      appBar: AppBar(
-        title: Text("Salvaterra", style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.orange,
-      ),
-      */
+    return Padding(padding: EdgeInsets.only(bottom: 50),
+    
+    child:Scaffold(
+      backgroundColor: Colors.white,    
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -782,7 +968,7 @@ class _salvaterraState extends State<salvaterraHome> {
         title: Text("Outros")
         )],
       ),
-
+      )
     );
   }
 }
