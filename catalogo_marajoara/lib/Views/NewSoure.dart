@@ -145,8 +145,7 @@ class _SoureNewState extends State<SoureNew> {
             }));
   }
 
-  Widget _buildFoodItem(
-      String imgPath, String restauranteNome, String contato, String id) {
+  Widget _buildFoodItem(String imgPath, String restauranteNome,String contato,String id) {
     return Padding(
         padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
         child: InkWell(
@@ -167,8 +166,8 @@ class _SoureNewState extends State<SoureNew> {
                   Hero(
                       tag: imgPath,
                       child: Container(
-                        height: 100,
-                        width: 100,
+                        height: 80,
+                        width: 80,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(200),
                             image:
@@ -178,11 +177,14 @@ class _SoureNewState extends State<SoureNew> {
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(restauranteNome,
-                            style: TextStyle(
-                                fontFamily: 'Montserrat',
-                                fontSize: 24.0,
-                                fontWeight: FontWeight.bold)),
+                        Container(
+                          width: 150,
+                          child: Text(restauranteNome,
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold)),
+                        ),
                       ])
                 ])),
               ],
