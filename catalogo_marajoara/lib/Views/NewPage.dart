@@ -1,34 +1,20 @@
 import 'dart:async';
 import 'dart:convert';
-
-import 'package:catalogomarajoara/Api/Api.dart';
-import 'package:catalogomarajoara/Api/Cardapios.dart';
-import 'package:catalogomarajoara/Api/Estabelecimentos.dart';
+import 'package:catalogomarajoara/Views/Componetes/buildFood.dart';
 import 'package:catalogomarajoara/Views/detalhesPage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 
 class SalvaterraNew extends StatefulWidget {
+  String nome;
+  SalvaterraNew({this.nome});
   @override
   _SalvaterraNewState createState() => _SalvaterraNewState();
 }
 
 class _SalvaterraNewState extends State<SalvaterraNew> {
 
-  var estabelecimentos = List<Estabelecimentos>();
-  var cardapios = List<Cardapios>();
-  final _streamController = StreamController<List>();
-
-  _getEstabelecimentos() {
-    APISalvaterra.getEstabelecimentos().then((response) {
-      setState(() {
-        Iterable lista = json.decode(response.body);
-        estabelecimentos =
-            lista.map((e) => Estabelecimentos.fromJson(e)).toList();
-        _streamController.add(lista);
-      });
-    });
-  }
 
     InterstitialAd myInterstitial = InterstitialAd(
     adUnitId: 'ca-app-pub-3652623512305285/5656754507',
@@ -49,7 +35,6 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _getEstabelecimentos();
         FirebaseAdMob.instance
         .initialize(appId: "ca-app-pub-3652623512305285~5040470589");
         myInterstitial
@@ -65,8 +50,8 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.blueAccent,
-        body: StreamBuilder(
-            stream: _streamController.stream,
+        body: StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance.collection(widget.nome).snapshots(),
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
@@ -77,7 +62,11 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
                   ));
 
                 default:
-                    return ListView(
+                    List<DocumentSnapshot> documentos = snapshot.data.docs.reversed.toList();
+
+                    return documentos.isNotEmpty
+                    ?
+                    ListView(
                       children: <Widget>[
                         Padding(
                           padding: EdgeInsets.only(top: 15.0, left: 10.0),
@@ -99,15 +88,13 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
                           padding: EdgeInsets.only(left: 40.0),
                           child: Row(
                             children: <Widget>[
-                              Hero(
-                                  tag: 'Salvaterra',
-                                  child: Text('Salvaterra',
-                                      style: TextStyle(
-                                          fontFamily: 'Montserrat',
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 35.0,
-                                          inherit: false))),
+                              Text(widget.nome,
+                                  style: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 30.0,
+                                      inherit: false)),
                             ],
                           ),
                         ),
@@ -130,68 +117,31 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
                                           MediaQuery.of(context).size.height -
                                               300.0,
                                       child: ListView.builder(
-                                        itemCount: estabelecimentos.length,
+                                        itemCount: documentos.length,
                                         itemBuilder: (context, index) {
-                                          return _buildFoodItem(
-                                            estabelecimentos[index].logoPath, 
-                                            estabelecimentos[index].nome,
-                                            estabelecimentos[index].contato,
-                                            estabelecimentos[index].id,
-                                            );
+                                          return BuildFood(
+                                            data: documentos[index].data(),
+                                          );
                                         },
                                        ))),
                             ],
                           ),
                         )
                       ],
+                    )
+                    :
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(14.0),
+                        child: Text('Sem Dados :(',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize:15,
+                          ),
+                        ),
+                      ),
                     );
               }
             }));
-  }
-
-  Widget _buildFoodItem(String imgPath, String restauranteNome,String contato,String id) {
-    return Padding(
-        padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
-        child: InkWell(
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => DetailsPage(
-                        heroTag: imgPath,
-                        nomeRestaurante: restauranteNome,
-                        contato: contato,
-                        restauranteID: id,
-                      )));
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                    child: Row(children: [
-                  Hero(
-                      tag: imgPath,
-                      child: Container(
-                        height: 80,
-                        width: 80,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(200),
-                            image:
-                                DecorationImage(image: NetworkImage(imgPath))),
-                      )),
-                  SizedBox(width: 10.0),
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 150,
-                          child: Text(restauranteNome,
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                      ])
-                ])),
-              ],
-            )));
   }
 }

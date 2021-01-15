@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:catalogomarajoara/Api/Api.dart';
-import 'package:catalogomarajoara/Api/Cardapios.dart';
 import 'package:catalogomarajoara/Views/verCardapio.dart';
 import 'package:flutter/material.dart';
 
@@ -11,32 +9,13 @@ class DetailsPage extends StatefulWidget {
   final nomeRestaurante;
   final contato;
   String restauranteID;
-  DetailsPage({this.heroTag, this.nomeRestaurante, this.contato,this.restauranteID});
+  DetailsPage(
+      {this.heroTag, this.nomeRestaurante, this.contato, this.restauranteID});
   @override
   _DetailsPageState createState() => _DetailsPageState();
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-
-  var cardapios = List<Cardapios>();
-  final _streamController = StreamController<List>();
-
-  _getCardapios(){
-    APISalvaterra.getCardapios(widget.restauranteID).then((response) {
-      setState(() {
-        Iterable lista = json.decode(response.body);
-        cardapios = lista.map((e) => Cardapios.fromJson(e)).toList();
-        _streamController.add(lista);
-      });
-    });
-  }
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _getCardapios();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,13 +36,6 @@ class _DetailsPageState extends State<DetailsPage> {
                   fontSize: 18.0,
                   color: Colors.white)),
           centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.more_horiz),
-              onPressed: () {},
-              color: Colors.white,
-            )
-          ],
         ),
         body: ListView(children: [
           Stack(children: [
@@ -118,7 +90,7 @@ class _DetailsPageState extends State<DetailsPage> {
                             alignment: Alignment.topLeft,
                             child: Container(
                               height: 40,
-                              width: MediaQuery.of(context).size.width/2,
+                              width: MediaQuery.of(context).size.width / 2,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(100),
@@ -131,7 +103,7 @@ class _DetailsPageState extends State<DetailsPage> {
                               )),
                             ),
                           ),
-                          onTap: () => launch('tel://'+widget.contato),
+                          onTap: () => launch('tel://' + widget.contato),
                         ),
                       ],
                     ),
@@ -143,29 +115,6 @@ class _DetailsPageState extends State<DetailsPage> {
                         style: TextStyle(fontSize: 25),
                       ),
                     ),
-                    StreamBuilder(
-                      stream: _streamController.stream,
-                      builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.none:
-                case ConnectionState.waiting:
-                  return Center(
-                      child: CircularProgressIndicator(
-                    backgroundColor: Colors.red,
-                  ));
-
-                default:
-                    return  Container(
-                      height: 130,
-                      width: double.infinity,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: cardapios.length,
-                        itemBuilder: (context,index){
-                          return _pegarCardapio(cardapios[index].cardapioPath);
-                        }),
-                    );}}),
-                   
                     SizedBox(
                       height: 15,
                     ),
@@ -179,22 +128,24 @@ class _DetailsPageState extends State<DetailsPage> {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
       child: Hero(
-        tag: img.toString(),
-        child:Container(
-        height: 120,
-        width: 120,
-        decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.circular(100),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(img))),
-        child: InkWell(
-          onTap: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>VerCardapio(hero: img,)));
-          },
-      ),
-      )),
+          tag: img.toString(),
+          child: Container(
+            height: 120,
+            width: 120,
+            decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(100),
+                image: DecorationImage(
+                    fit: BoxFit.cover, image: NetworkImage(img))),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => VerCardapio(
+                          hero: img,
+                        )));
+              },
+            ),
+          )),
     );
   }
 }

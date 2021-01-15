@@ -1,10 +1,12 @@
-import 'package:catalogomarajoara/Views/NewSalvaterra.dart';
-import 'package:catalogomarajoara/Views/NewSoure.dart';
+import 'package:catalogomarajoara/Views/NewPage.dart';
 import 'package:flutter/material.dart';
 import 'package:catalogomarajoara/Views/saibaMais.dart';
 import 'package:firebase_admob/firebase_admob.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MaterialApp(
     home: HomePage(),
     debugShowCheckedModeBanner: false,
@@ -24,26 +26,13 @@ class _HomePageState extends State<HomePage> {
     testDevices: <String>[], // Android emulators are considered test devices
   );
 
-  BannerAd myBanner = BannerAd(
-    adUnitId: 'ca-app-pub-3652623512305285/9885248908',
-    size: AdSize.fullBanner,
-    targetingInfo: targetingInfo,
-    listener: (MobileAdEvent event) {
-      print("BannerAd event is $event");
-    },
-  );
 
-  BannerAd _bannerAd;
 
   @override
   void initState() {
     super.initState();
     FirebaseAdMob.instance
         .initialize(appId: "ca-app-pub-3652623512305285~5040470589");
-
-    _bannerAd = myBanner
-      ..load()
-      ..show(anchorType: AnchorType.bottom);
 
   }
 
@@ -107,73 +96,84 @@ class _HomePageState extends State<HomePage> {
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Text(
-                  "   Escolha o catálogo: ",
-                  style: TextStyle(color: Colors.white, fontSize: 15.0),
+              Padding(
+                padding: const EdgeInsets.only(left: 20,bottom: 10),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    "Escolha o catálogo: ",
+                    style: TextStyle(color: Colors.white, fontSize: 15.0),
+                  ),
                 ),
               ),
-              Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.blueAccent),
-                    child: InkWell(
-                        splashColor: Colors.blue,
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  SalvaterraNew()));
-                        },
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                                child: Center(
-                              child: Hero(
-                                  tag: 'Salvaterra',
-                                  child: Text(
-                                    "Salvaterra",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18.0,
-                                        inherit: false),
-                                  )),
-                            ))
-                          ],
-                        )),
-                  )),
+              Padding(
+                padding: const EdgeInsets.only(left: 15,right: 15),
+                child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.blueAccent),
+                      child: InkWell(
+                          splashColor: Colors.blue,
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    SalvaterraNew(
+                                      nome: 'Salvaterra',
+                                    )));
+                          },
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                  child: Center(
+                                child: Text(
+                                  "Salvaterra",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18.0,
+                                      inherit: false),
+                                ),
+                              ))
+                            ],
+                          )),
+                    )),
+              ),
               SizedBox(
                 height: 20,
               ),
-              Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.purpleAccent),
-                    child: InkWell(
-                        splashColor: Colors.orange,
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) => SoureNew()));
-                        },
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: Center(
-                                  child: Text(
-                                "Soure",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 18.0),
-                              )),
-                            )
-                          ],
-                        )),
-                  )),
+              Padding(
+                padding: const EdgeInsets.only(left: 15,right: 15),
+                child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.purpleAccent),
+                      child: InkWell(
+                          splashColor: Colors.orange,
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) => SalvaterraNew(
+                                  nome: 'Soure',
+                                )));
+                          },
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: Center(
+                                    child: Text(
+                                  "Soure",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 18.0),
+                                )),
+                              )
+                            ],
+                          )),
+                    )),
+              ),
               SizedBox(
                 height: 70,
               )
