@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:catalogomarajoara/Views/saibaMais.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:admob_flutter/admob_flutter.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  Admob.initialize();
   await Firebase.initializeApp();
   runApp(MaterialApp(
     home: HomePage(),

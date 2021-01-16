@@ -20,6 +20,7 @@ class _BuildFoodState extends State<BuildFood> {
                             heroTag: widget.data['perfil'],
                             nomeRestaurante: widget.data['nome'],
                             contato: widget.data['telefone'],
+                            cardapios: List.from(widget.data['card']),
                           )));
                 },
                 child: Row(
@@ -29,16 +30,11 @@ class _BuildFoodState extends State<BuildFood> {
                         child: Row(children: [
                       Hero(
                           tag: widget.data['perfil'],
-                          child: Container(
-                            height: 80,
-                            width: 80,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(200),
-                                image:
-                                    DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: NetworkImage(
-                                        widget.data['perfil'],))),
+                          child: CircleAvatar(
+                            maxRadius: 40,
+                            minRadius: 35,
+                            backgroundImage: NetworkImage(
+                              widget.data['perfil']),
                           )),
                       SizedBox(width: 10.0),
                       Column(

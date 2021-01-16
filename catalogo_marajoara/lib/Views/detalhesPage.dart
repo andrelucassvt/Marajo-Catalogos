@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:catalogomarajoara/Views/verCardapio.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +9,9 @@ class DetailsPage extends StatefulWidget {
   final heroTag;
   final nomeRestaurante;
   final contato;
-  String restauranteID;
+  List<String> cardapios;
   DetailsPage(
-      {this.heroTag, this.nomeRestaurante, this.contato, this.restauranteID});
+      {this.heroTag, this.nomeRestaurante, this.contato,this.cardapios});
   @override
   _DetailsPageState createState() => _DetailsPageState();
 }
@@ -118,6 +119,29 @@ class _DetailsPageState extends State<DetailsPage> {
                     SizedBox(
                       height: 15,
                     ),
+
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        height: 100,
+                        child: ListView.builder(
+                          itemCount: widget.cardapios.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (conntext, index){
+                            return _pegarCardapio(widget.cardapios[index]);
+                          },
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        margin: EdgeInsets.only(top: 20),
+                        child: AdmobBanner(
+                          adUnitId: 'ca-app-pub-3652623512305285/9885248908',
+                          adSize: AdmobBannerSize.BANNER,
+                        ),
+                      ),
+                    )
                   ],
                 ))
           ])
@@ -134,7 +158,7 @@ class _DetailsPageState extends State<DetailsPage> {
             width: 120,
             decoration: BoxDecoration(
                 color: Colors.blue,
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
                     fit: BoxFit.cover, image: NetworkImage(img))),
             child: InkWell(

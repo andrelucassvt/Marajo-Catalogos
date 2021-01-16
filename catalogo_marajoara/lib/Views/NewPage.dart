@@ -14,9 +14,7 @@ class SalvaterraNew extends StatefulWidget {
 }
 
 class _SalvaterraNewState extends State<SalvaterraNew> {
-
-
-    InterstitialAd myInterstitial = InterstitialAd(
+  InterstitialAd myInterstitial = InterstitialAd(
     adUnitId: 'ca-app-pub-3652623512305285/5656754507',
     targetingInfo: targetingInfo,
     listener: (MobileAdEvent event) {
@@ -24,7 +22,7 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
     },
   );
 
-    static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
     keywords: <String>['flutterio', 'beautiful apps'],
     contentUrl: 'https://flutter.io',
     childDirected: false,
@@ -35,9 +33,9 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
   void initState() {
     // TODO: implement initState
     super.initState();
-        FirebaseAdMob.instance
+    FirebaseAdMob.instance
         .initialize(appId: "ca-app-pub-3652623512305285~5040470589");
-        myInterstitial
+    myInterstitial
       ..load()
       ..show(
         anchorType: AnchorType.bottom,
@@ -50,98 +48,100 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.blueAccent,
-        body: StreamBuilder<QuerySnapshot>(
-            stream: FirebaseFirestore.instance.collection(widget.nome).snapshots(),
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.none:
-                case ConnectionState.waiting:
-                  return Center(
-                      child: CircularProgressIndicator(
-                    backgroundColor: Colors.red,
-                  ));
+        body: ListView(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(top: 15.0, left: 10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.arrow_back_ios),
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 25.0),
+            Padding(
+              padding: EdgeInsets.only(left: 40.0),
+              child: Row(
+                children: <Widget>[
+                  Text(widget.nome,
+                      style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30.0,
+                          inherit: false)),
+                ],
+              ),
+            ),
+            SizedBox(height: 40.0),
+            Container(
+              height: MediaQuery.of(context).size.height - 185.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(75.0)),
+              ),
+              child: ListView(
+                primary: false,
+                padding: EdgeInsets.only(left: 25.0, right: 20.0),
+                children: <Widget>[
+                  Padding(
+                      padding: EdgeInsets.only(top: 45.0),
+                      child: Container(
+                          height: MediaQuery.of(context).size.height - 300.0,
+                          child: StreamBuilder<QuerySnapshot>(
+                            stream: FirebaseFirestore.instance.collection(widget.nome).snapshots(),
+                            builder: (context, snapshot) {
+                              switch (snapshot.connectionState) {
+                                case ConnectionState.none:
+                                case ConnectionState.waiting:
+                                  return Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                default:
+                                  List<DocumentSnapshot> documentos = snapshot.data.docs.reversed.toList();
+                                  if (snapshot.hasError) {
+                                    return Center(
+                                      child: Text(
+                                        'Estamos com problemas no servidor :(',
+                                        style: TextStyle(fontSize: 20),
+                                        ),
+                                    );
+                                  }else if(documentos.isEmpty){
+                                    return Center(
+                                      child: Text('Sem dados :?',
+                                      style: TextStyle(fontSize: 20),
+                                      ),
+                                    );
+                                  }else{
+                                    return ListView.builder(
+                                      itemCount: documentos.length,
+                                      itemBuilder: (context, index) {
+                                        return BuildFood(
+                                          data: documentos[index].data(),
+                                        );
+                                      },
+                                    );
+                                  }
+                              }
+                            }
+                          ))),
+                ],
+              ),
+            )
+          ],
+        )
 
-                default:
-                    List<DocumentSnapshot> documentos = snapshot.data.docs.reversed.toList();
+        //Não APAGAR//////////////////////////////////////
 
-                    return documentos.isNotEmpty
-                    ?
-                    ListView(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(top: 15.0, left: 10.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              IconButton(
-                                icon: Icon(Icons.arrow_back_ios),
-                                color: Colors.white,
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: 25.0),
-                        Padding(
-                          padding: EdgeInsets.only(left: 40.0),
-                          child: Row(
-                            children: <Widget>[
-                              Text(widget.nome,
-                                  style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 30.0,
-                                      inherit: false)),
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: 40.0),
-                        Container(
-                          height: MediaQuery.of(context).size.height - 185.0,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(75.0)),
-                          ),
-                          child: ListView(
-                            primary: false,
-                            padding: EdgeInsets.only(left: 25.0, right: 20.0),
-                            children: <Widget>[
-                              Padding(
-                                  padding: EdgeInsets.only(top: 45.0),
-                                  child: Container(
-                                      height:
-                                          MediaQuery.of(context).size.height -
-                                              300.0,
-                                      child: ListView.builder(
-                                        itemCount: documentos.length,
-                                        itemBuilder: (context, index) {
-                                          return BuildFood(
-                                            data: documentos[index].data(),
-                                          );
-                                        },
-                                       ))),
-                            ],
-                          ),
-                        )
-                      ],
-                    )
-                    :
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(14.0),
-                        child: Text('Sem Dados :(',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize:15,
-                          ),
-                        ),
-                      ),
-                    );
-              }
-            }));
+        );
   }
 }
+//
+//
