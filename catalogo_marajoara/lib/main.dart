@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:catalogomarajoara/Views/NewPage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:catalogomarajoara/Views/saibaMais.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:admob_flutter/admob_flutter.dart';
+import 'package:connectivity/connectivity.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,16 +32,54 @@ class _HomePageState extends State<HomePage> {
     testDevices: <String>[], // Android emulators are considered test devices
   );
 
-
+  String connection = "";
+  StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   @override
   void initState() {
     super.initState();
     FirebaseAdMob.instance
         .initialize(appId: "ca-app-pub-3652623512305285~5040470589");
-
+    _connectivitySubscription = Connectivity().onConnectivityChanged.listen(_updateStatus);
   }
 
+   void _updateStatus(ConnectivityResult connectivityResult) async{
+      if (connectivityResult == ConnectivityResult.mobile) {
+
+          connection = 'Conectado';
+
+        } else if (connectivityResult == ConnectivityResult.wifi) {
+          connection = 'Conectado';
+        }else{
+          connection = 'Desconectado';
+        }
+    }
+//Navegar entre paginas
+  _navegar({String nome,String status}){
+    if (status == 'Conectado') {
+      return Navigator.of(context).push(
+        MaterialPageRoute(builder: (context)=> SalvaterraNew(nome: nome,)));
+    } else {
+          return Future.delayed(Duration.zero,(){
+              showDialog(
+                context: context,
+                builder: (BuildContext context)=>CupertinoAlertDialog(
+                  title: Text('Aviso'),
+                  content: Text('Você está sem conexão'),
+                  actions: [
+                    CupertinoDialogAction(
+                      isDefaultAction: true,
+                      onPressed: (){
+                        _connectivitySubscription = Connectivity().onConnectivityChanged.listen(_updateStatus);
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Voltar')),
+                  ],
+                )
+                );
+          });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,11 +162,7 @@ class _HomePageState extends State<HomePage> {
                       child: InkWell(
                           splashColor: Colors.blue,
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    SalvaterraNew(
-                                      nome: 'Salvaterra',
-                                    )));
+                            _navegar(nome: 'Salvaterra',status: connection);
                           },
                           child: Row(
                             children: <Widget>[
@@ -157,10 +195,7 @@ class _HomePageState extends State<HomePage> {
                       child: InkWell(
                           splashColor: Colors.orange,
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) => SalvaterraNew(
-                                  nome: 'Soure',
-                                )));
+                            _navegar(nome: 'Soure',status: connection);
                           },
                           child: Row(
                             children: <Widget>[

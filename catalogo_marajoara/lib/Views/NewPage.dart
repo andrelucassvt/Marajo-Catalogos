@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:catalogomarajoara/Views/Componetes/buildFood.dart';
 import 'package:catalogomarajoara/Views/detalhesPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -49,6 +50,8 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
     return Scaffold(
         backgroundColor: Colors.blueAccent,
         body: ListView(
+          shrinkWrap: true,
+          physics: ClampingScrollPhysics(),
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(top: 15.0, left: 10.0),
@@ -88,7 +91,8 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(75.0)),
               ),
               child: ListView(
-                primary: false,
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
                 padding: EdgeInsets.only(left: 25.0, right: 20.0),
                 children: <Widget>[
                   Padding(
@@ -121,6 +125,8 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
                                     );
                                   }else{
                                     return ListView.builder(
+                                      physics: ClampingScrollPhysics(),
+                                      shrinkWrap: true,
                                       itemCount: documentos.length,
                                       itemBuilder: (context, index) {
                                         return BuildFood(
@@ -137,11 +143,6 @@ class _SalvaterraNewState extends State<SalvaterraNew> {
             )
           ],
         )
-
-        //Não APAGAR//////////////////////////////////////
-
         );
   }
 }
-//
-//
