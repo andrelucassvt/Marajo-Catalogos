@@ -1,4 +1,4 @@
-import 'package:catalogomarajoara/Views/detalhesPage.dart';
+import 'package:catalogomarajoara/Views/PageFood/DetalhePage/detalhesPage.dart';
 import 'package:flutter/material.dart';
 
 class BuildFood extends StatefulWidget {

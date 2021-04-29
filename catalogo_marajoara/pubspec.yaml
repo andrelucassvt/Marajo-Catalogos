@@ -14,7 +14,7 @@ description: A new Flutter application.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -52,18 +52,7 @@ flutter_icons:
 # The following section is specific to Flutter.
 flutter:
   assets:
-  - Imagens/Marajoara.jpg
-  - Imagens/padrao.png
-  - Imagens/Yanka.jpeg
-  - Imagens/Andre.jpg
-  - Imagens/extra.jpg
-  - Imagens/eu2.jpeg
-  - Imagens/eu3.PNG
-  - Imagens/dario.jpg
-  - Imagens/bufalo.jpg
-  - Imagens/loading.jpg
-  - Imagens/Icone.jpg
-  - Imagens/TesouroMarajoara4.JPG
+  - Imagens/
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -18,14 +18,11 @@ class _VerCardapioState extends State<VerCardapio> {
         elevation: 0.0,
         backgroundColor: Colors.transparent,
       ),
-        body: Hero(
-          tag: widget.hero.toString(),
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                image: DecorationImage(image: NetworkImage(widget.hero))),
-          ),
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+              image: DecorationImage(image: NetworkImage(widget.hero))),
         ));
   }
 }
